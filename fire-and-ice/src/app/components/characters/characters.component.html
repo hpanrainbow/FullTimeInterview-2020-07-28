@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>Character</h1>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+        
+        <span *ngIf="currentCharacter">
+          <h3 mat-line>
+            {{currentCharacter.name}}
+          </h3>
+          <p mat-line>
+            {{currentCharacter.cultrue}}
+          </p>
+          <mat-list>
+            <mat-list-item *ngFor="let title of currentCharacter.titles">
+              {{title}}
+            </mat-list-item>
+          </mat-list>
+          <mat-list>
+            <mat-list-item *ngFor="let title of currentCharacter.aliases">
+              {{aliase}}
+            </mat-list-item>
+          </mat-list>
+      </span>
+        
+  </mat-card-content>
+</mat-card>

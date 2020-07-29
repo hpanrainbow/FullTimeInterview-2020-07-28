@@ -1,3 +1,47 @@
-<p>
-  Add information about the books in here
-</p>
+<div class="container">
+  <!-- Book LIST -->
+  <div class="col-30">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h1>Books</h1>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item (click)="selectBook(book)"
+            *ngFor="let book of books">
+            <h3 mat-line>
+              <!-- PROJECT DETAILS -->
+              {{book.name}}
+            </h3>
+            <p mat-line>
+              <!-- PROJECT DETAILS -->
+              {{book.authors}}
+            </p>
+            <p mat-line>
+              {{book.released}}
+            </p>
+            <p mat-line>
+              {{book.isbn}}
+            </p>
+
+            <div class="col-70">
+              <span *ngIf="selectedBook && selectedBook.povCharacters">
+                <span>{{selectedBook.povCharacters}}</span>
+                <mat-list-item *ngFor="let character of selectedBook.povCharacters"> -->
+                  <span>{{character}}</span>
+                  <app-characters>
+                    [url]="character"
+                  </app-characters>
+                </mat-list-item>
+              </span>  
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  
+</div>
