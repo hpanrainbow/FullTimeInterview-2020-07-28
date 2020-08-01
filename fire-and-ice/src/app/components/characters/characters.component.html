@@ -1,29 +1,20 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>
-      <h1>Character</h1>
-    </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-        
-        <span *ngIf="currentCharacter">
-          <h3 mat-line>
-            {{currentCharacter.name}}
-          </h3>
-          <p mat-line>
-            {{currentCharacter.cultrue}}
-          </p>
-          <mat-list>
-            <mat-list-item *ngFor="let title of currentCharacter.titles">
-              {{title}}
-            </mat-list-item>
-          </mat-list>
-          <mat-list>
-            <mat-list-item *ngFor="let title of currentCharacter.aliases">
-              {{aliase}}
-            </mat-list-item>
-          </mat-list>
-      </span>
-        
-  </mat-card-content>
-</mat-card>
+<div *ngIf="character" class="character">
+  <div class="character__name">Name: {{character.name}}</div>
+  <div class="character__culture">Culture: {{character.culture}}</div>
+  <div class="character__birth">Birth: {{character.birth}}</div>
+  <div class="character__titles" *ngIf="character.titles">Titles: {{titles}}</div>
+  <div class="character__aliases" *ngIf="character.aliases">Aliases: {{aliases}}</div>
+</div>
+
+<!-- <div>
+  <div *ngIf="character" class="character"></div>
+  <mat-card >
+    <mat-card-content>
+      <p mat-line>Name: {{character.name}}</p>
+      <p mat-line>Culture: {{character.culture}}</p>
+      <p mat-line>Birth: {{birth}}</p>
+      <p mat-line>Titles: {{titles}}</p>
+      <p mat-line>Aliases: {{alias}}</p>
+    </mat-card-content>
+  </mat-card>
+</div> -->

@@ -6,5 +6,6 @@ export interface Character {
     culture: string,
     birth: Date,
     titles: string[],
-    booksAppear: string[]
+    aliases: string[],
+    books: string[]
 }
