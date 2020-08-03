@@ -4,7 +4,8 @@ import { Book } from "./book";
 export interface Character {
     name: string,
     culture: string,
-    birth: Date,
+    born: string,
+    gender: string,
     titles: string[],
     aliases: string[],
     books: string[]

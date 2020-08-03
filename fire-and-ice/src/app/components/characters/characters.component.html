@@ -1,20 +1,32 @@
-<div *ngIf="character" class="character">
-  <div class="character__name">Name: {{character.name}}</div>
-  <div class="character__culture">Culture: {{character.culture}}</div>
-  <div class="character__birth">Birth: {{character.birth}}</div>
-  <div class="character__titles" *ngIf="character.titles">Titles: {{titles}}</div>
-  <div class="character__aliases" *ngIf="character.aliases">Aliases: {{aliases}}</div>
-</div>
+<div class="mat-elevation-z8">
+  <!-- TODO: Implement Paginated List For Characters -->
+  <table mat-table [dataSource]="characters">
+    <ng-container matColumnDef="aliases">
+      <th mat-header-cell *matHeaderCellDef> Aliases </th>
+      <td mat-cell *matCellDef="let character">{{character.aliases}}</td>
+    </ng-container>
+    <ng-container matColumnDef="born">
+      <th mat-header-cell *matHeaderCellDef> Born </th>
+      <td mat-cell *matCellDef="let character">{{character.born}}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let character">{{character.name}}</td>
+    </ng-container>
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef> Gender </th>
+      <td mat-cell *matCellDef="let character">{{character.gender}}</td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 
-<!-- <div>
-  <div *ngIf="character" class="character"></div>
-  <mat-card >
-    <mat-card-content>
-      <p mat-line>Name: {{character.name}}</p>
-      <p mat-line>Culture: {{character.culture}}</p>
-      <p mat-line>Birth: {{birth}}</p>
-      <p mat-line>Titles: {{titles}}</p>
-      <p mat-line>Aliases: {{alias}}</p>
-    </mat-card-content>
-  </mat-card>
-</div> -->
+  <mat-paginator
+    [length]="totalNumber"
+    [pageIndex]="pageIndex"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    (page)="pageEvent = onPaginateChange($event)">
+  </mat-paginator>
+</div>

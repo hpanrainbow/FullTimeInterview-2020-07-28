@@ -10,6 +10,8 @@ import { AppComponent } from './components/app/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { CharactersComponent } from './components/characters/characters.component';
+import { BookComponent } from './components/books/book/book.component';
+import { CharacterDialogComponent } from './components/characters/character-dialog/character-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { CharactersComponent } from './components/characters/characters.componen
     BooksComponent,
     AppComponent,
     CharactersComponent,
+    BookComponent,
+    CharacterDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +28,9 @@ import { CharactersComponent } from './components/characters/characters.componen
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule
+  ],
+  entryComponents: [
+    CharacterDialogComponent,
   ],
   providers: [
     RequestrService,

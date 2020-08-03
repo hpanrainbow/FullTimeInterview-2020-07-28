@@ -1,4 +1,7 @@
-.book {
-    border: solid 1px black;
-    margin: 10px;
+.books {
+    background-color: #fafafa;
+
+    ::ng-deep .mat-tab-label .mat-tab-label-content {
+        font-size: x-large;
+    }
 }

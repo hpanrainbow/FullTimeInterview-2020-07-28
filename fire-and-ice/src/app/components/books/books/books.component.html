@@ -1,22 +1,14 @@
 <div class="books">
-  <!-- Book LIST -->
-  <h1>Books</h1>
-  <div *ngFor="let book of books">
-    <mat-card class="book">
-      <mat-card-header>
-        <mat-card-title>{{book.name}}</mat-card-title>
-        <!-- TODO: get year from the release date-->
-        <mat-card-subtitle>{{book.authors}} - {{book.released}}</mat-card-subtitle>
-      </mat-card-header>
-      <mat-card-content>
-        <!-- <span *ngIf="selectedBook && selectedBook.povCharacters"></span> -->
-        <mat-grid-list cols="5">
-          <mat-grid-tile *ngFor="let character of book.povCharacters">
-            <app-characters [url]="character"></app-characters>
-          </mat-grid-tile>
-        </mat-grid-list>
-        <span>ISBN: {{book.isbn}}</span>
-      </mat-card-content>
-    </mat-card>
-  </div>
+  <mat-tab-group>
+    <mat-tab label="Books">
+      <div *ngIf="books">
+        <div *ngFor="let book of books">
+          <app-book [book]="book"></app-book>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="Characters">
+      <app-characters></app-characters>
+    </mat-tab>
+  </mat-tab-group>
 </div>

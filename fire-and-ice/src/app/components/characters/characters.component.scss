@@ -1,26 +1,29 @@
-.character {
-    border: 1px solid lightgrey;
-    margin: 5px;
-    height: 200px;
-    overflow-y: scroll;
-
-    &__name {
-        color: black;
-    }
-
-    &__culture {
-        color: black;
-    }
-
-    &__birth {
-        color: black;
-    }
-
-    &__titles {
-        word-break: break-word;
-    }
-
-    &__aliases {
-        word-break: break-word;
-    }
+table {
+    width: 100%;
 }
+// .character {
+//     border: 1px solid lightgrey;
+//     margin: 5px;
+//     height: 200px;
+//     overflow-y: scroll;
+
+//     &__name {
+//         color: black;
+//     }
+
+//     &__culture {
+//         color: black;
+//     }
+
+//     &__birth {
+//         color: black;
+//     }
+
+//     &__titles {
+//         word-break: break-word;
+//     }
+
+//     &__aliases {
+//         word-break: break-word;
+//     }
+// }
