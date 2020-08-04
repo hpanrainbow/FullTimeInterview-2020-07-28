@@ -9,6 +9,7 @@ import { BooksComponent } from './components/books/books/books.component';
 import { AppComponent } from './components/app/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { CharactersComponent } from './components/characters/characters.component';
 import { BookComponent } from './components/books/book/book.component';
 import { CharacterDialogComponent } from './components/characters/character-dialog/character-dialog.component';
@@ -27,7 +28,8 @@ import { CharacterDialogComponent } from './components/characters/character-dial
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    NgxSkeletonLoaderModule
   ],
   entryComponents: [
     CharacterDialogComponent,

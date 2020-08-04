@@ -2,7 +2,6 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {RequestrService} from "../../services/requestr.service";
 import {Character} from "../../interfaces/character";
 import {MatTableDataSource} from "@angular/material/table";
-import { MatPaginator } from '@angular/material/paginator';
 
 const BASE_URL = 'https://www.anapioficeandfire.com/api/characters/';
 
@@ -18,9 +17,6 @@ export class CharactersComponent implements OnInit {
   pageSizeOptions: number[] = [5, 10, 20];
   characters: MatTableDataSource<Character>;
   displayedColumns: string[] = ['name', 'gender', 'born', 'aliases'];
-  // displayedColumns: string[] = ['aliases', 'born', 'name', 'gender'];
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private requestrService: RequestrService) {
   }

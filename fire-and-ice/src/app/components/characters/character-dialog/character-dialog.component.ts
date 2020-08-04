@@ -16,34 +16,28 @@ export interface CharacterInfo {
 })
 export class CharacterDialogComponent implements OnInit {
   characterInfos: CharacterInfo[] =[];
-  books: string[] = [];
+  books$: string[] = [];
+  loading: boolean = true;
 
   constructor(@Inject(MAT_DIALOG_DATA) public character: Character,
               private requestrService: RequestrService) { }
 
-  ngOnInit() {
-    
+  async ngOnInit() {
+    // get the list of books the character appear in
+    let books = this.character.books.concat(this.character.povBooks);
+    for (let url of books) {
+      let resp = await this.requestrService.get(url);
+      this.books$.push(resp.body.name);
+    }
+
     this.characterInfos.push({title: "Name", value: this.character.name});
     this.characterInfos.push({title: "Culture", value: this.character.culture});
     this.characterInfos.push({title: "Birth", value: this.character.born});
     this.characterInfos.push({title: "Titles", value: (this.character.titles || []).join(", ")});
     this.characterInfos.push({title: "Aliases", value: (this.character.aliases || []).join(", ")});
+    this.characterInfos.push({title: 'Books Appeared', value: this.books$.join(", ")});
     
-    this.getBooks(this.character.books);
-    this.characterInfos.push({
-      title: 'Books Appeared',
-      value: this.books.join(", ")
-    });
-
     this.characterInfos = this.characterInfos.filter(c => !isEmpty(c.value));
-  };
-
-  getBooks(bookUrls: string[]) {
-    let _this = this;
-    bookUrls.forEach(bookUrl => {
-      this.requestrService.get(bookUrl).then(function(response) {
-        _this.books.push(response.body.name);
-      })
-    });
+    this.loading = false;
   }
 }

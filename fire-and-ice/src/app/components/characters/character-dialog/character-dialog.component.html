@@ -1,23 +1,22 @@
-<!-- <mat-card class="character">
-  <mat-card-content *ngIf="character">
-    <mat-list *ngFor="let info of characterInfos">
-      <mat-list-item>
-        {{info.title}}: {{info.value}}
-      </mat-list-item>
-    </mat-list>
-  </mat-card-content>
-</mat-card> -->
-
-<div *ngIf="character" class="character">
+<ngx-skeleton-loader count="5" appearance="circle" *ngIf="loading"> 
+</ngx-skeleton-loader>
+<div *ngIf="!loading && character" class="character">
   <div *ngFor="let info of characterInfos" class="character__info">
     <div class="character__info-title"><b>{{info.title}}</b></div>
     <div class="character__info-value">{{info.value}}</div>
   </div>
 </div>
 
-<!-- <div *ngIf="character" class="character">
-  <div *ngFor="let characterInfo of characterInfos" class="character__info">
-    <div class="character__info-title"><b>{{characterInfo.title}}</b></div>
-    <div class="character__info-value">{{characterInfo.value}}</div>
+<!-- 
+<div *ngIf="loading else loaded">
+  <mat-spinner></mat-spinner>
+</div>
+<ng-template #loaded>
+  <div *ngIf="character" class="character">
+    <div *ngFor="let info of characterInfos" class="character__info">
+      <div class="character__info-title"><b>{{info.title}}</b></div>
+      <div class="character__info-value">{{info.value}}</div>
+    </div>
   </div>
-</div> -->
+</ng-template> 
+-->

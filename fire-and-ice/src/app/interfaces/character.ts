@@ -8,5 +8,6 @@ export interface Character {
     gender: string,
     titles: string[],
     aliases: string[],
-    books: string[]
+    books: string[],
+    povBooks: string[]
 }
